@@ -1,0 +1,43 @@
+=== LOOP ANALYSIS BY OPTIMIZATION TIER ===
+
+=== baseline ===
+Loop info for function 'expand_key':
+Loop at depth 1 containing: %23<header><exiting>,%26,%54,%91,%151<latch>
+Loop at depth 1 containing: %8<header><exiting>,%11,%19<latch>
+Loop info for function 'aes128_encrypt_block':
+Loop at depth 1 containing: %82<header><exiting>,%85,%91,%107,%111<latch>,%94,%104
+    Loop at depth 2 containing: %91<header><exiting>,%94,%104<latch>
+Loop at depth 1 containing: %37<header><exiting>,%40,%41,%75,%78<latch>,%44,%52,%68,%72,%55,%65
+    Loop at depth 2 containing: %41<header><exiting>,%44,%52,%68,%72<latch>,%55,%65
+        Loop at depth 3 containing: %52<header><exiting>,%55,%65<latch>
+Loop at depth 1 containing: %21<header><exiting>,%24,%33<latch>
+Loop info for function 'aes32esmi_u32':
+Loop info for function 'aes32esi_u32':
+Loop info for function 'aes128_ecb_encrypt':
+Loop at depth 1 containing: %18<header><exiting>,%22,%30<latch>
+Loop info for function 'write_to_address':
+Loop info for function 'write_v_to_address':
+Loop at depth 1 containing: %8<header><exiting>,%11,%20<latch>
+Loop info for function 'main':
+Loop at depth 1 containing: %18<header><exiting>,%21<exiting>,%32,%33<latch>
+
+=== unroll ===
+Loop info for function 'expand_key':
+Loop info for function 'aes128_encrypt_block':
+Loop info for function 'aes128_ecb_encrypt':
+Loop at depth 1 containing: %11<header><latch><exiting>
+Loop info for function 'write_to_address':
+Loop info for function 'write_v_to_address':
+Loop at depth 1 containing: %4<header><latch><exiting>
+Loop info for function 'main':
+Loop at depth 1 containing: %12<header><latch><exiting>
+Loop at depth 1 containing: %3<header><latch><exiting>
+
+=== aggressive ===
+Loop info for function 'expand_key':
+Loop info for function 'aes128_encrypt_block':
+Loop info for function 'aes128_ecb_encrypt':
+Loop at depth 1 containing: %.preheader<header><latch><exiting>
+Loop info for function 'write_to_address':
+Loop info for function 'write_v_to_address':
+Loop info for function 'main':

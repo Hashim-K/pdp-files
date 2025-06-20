@@ -1,0 +1,5 @@
+digraph "CFG for 'write_to_address' function" {
+	label="CFG for 'write_to_address' function";
+
+	Node0x36c5c260 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870" fontname="Courier",label="{2:\l|  %3 = alloca i32, align 4\l  %4 = alloca i32, align 4\l  store i32 %0, ptr %3, align 4\l  store i32 %1, ptr %4, align 4\l  %5 = load i32, ptr %4, align 4\l  %6 = load i32, ptr %3, align 4\l  %7 = inttoptr i32 %6 to ptr\l  store volatile i32 %5, ptr %7, align 4\l  ret void\l}"];
+}

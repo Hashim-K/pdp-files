@@ -1,0 +1,20 @@
+digraph "CFG for 'aes128_ecb_encrypt' function" {
+	label="CFG for 'aes128_ecb_encrypt' function";
+
+	Node0x214e6d50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ca3b3770" fontname="Courier",label="{4:\l|  %5 = alloca [176 x i8], align 1\l  %6 = and i32 %1, 15\l  %7 = icmp eq i32 %6, 0\l  br i1 %7, label %8, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x214e6d50:s0 -> Node0x214e6f90;
+	Node0x214e6d50:s1 -> Node0x214e6ff0;
+	Node0x214e6f90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d24b4070" fontname="Courier",label="{8:\l|  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #4\l  call void @expand_key(ptr noundef %2, ptr noundef nonnull %5)\l  %9 = icmp eq i32 %1, 0\l  br i1 %9, label %10, label %.preheader\l|{<s0>T|<s1>F}}"];
+	Node0x214e6f90:s0 -> Node0x214e7490;
+	Node0x214e6f90:s1 -> Node0x214e74f0;
+	Node0x214e74f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6524470" fontname="Courier",label="{.preheader:\l|  br label %11\l}"];
+	Node0x214e74f0 -> Node0x214e7630;
+	Node0x214e77f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6524470" fontname="Courier",label="{.loopexit:\l|  br label %10\l}"];
+	Node0x214e77f0 -> Node0x214e7490;
+	Node0x214e7490 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d24b4070" fontname="Courier",label="{10:\l|  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #4\l  br label %17\l}"];
+	Node0x214e7490 -> Node0x214e6ff0;
+	Node0x214e7630 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870" fontname="Courier",label="{11:\l|  %12 = phi i32 [ %15, %11 ], [ 0, %.preheader ]\l  %13 = getelementptr inbounds nuw i8, ptr %0, i32 %12\l  %14 = getelementptr inbounds nuw i8, ptr %3, i32 %12\l  call void @aes128_encrypt_block(ptr noundef %13, ptr noundef nonnull %5, ptr\l... noundef %14)\l  %15 = add i32 %12, 16\l  %16 = icmp ult i32 %15, %1\l  br i1 %16, label %11, label %.loopexit, !llvm.loop !13\l|{<s0>T|<s1>F}}"];
+	Node0x214e7630:s0 -> Node0x214e7630;
+	Node0x214e7630:s1 -> Node0x214e77f0;
+	Node0x214e6ff0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ca3b3770" fontname="Courier",label="{17:\l|  ret void\l}"];
+}

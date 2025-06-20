@@ -1,0 +1,16 @@
+digraph "CFG for 'aes128_ecb_encrypt' function" {
+	label="CFG for 'aes128_ecb_encrypt' function";
+
+	Node0x1b098250 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ca3b3770" fontname="Courier",label="{4:\l|  %5 = alloca [176 x i8], align 1\l  %6 = and i32 %1, 15\l  %7 = icmp eq i32 %6, 0\l  br i1 %7, label %8, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1b098250:s0 -> Node0x1b0b8fa0;
+	Node0x1b098250:s1 -> Node0x1b0b9000;
+	Node0x1b0b8fa0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d24b4070" fontname="Courier",label="{8:\l|  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #4\l  call void @expand_key(ptr noundef %2, ptr noundef nonnull %5)\l  %9 = icmp eq i32 %1, 0\l  br i1 %9, label %.loopexit, label %.preheader\l|{<s0>T|<s1>F}}"];
+	Node0x1b0b8fa0:s0 -> Node0x1b0b94a0;
+	Node0x1b0b8fa0:s1 -> Node0x1b0b9640;
+	Node0x1b0b94a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d24b4070" fontname="Courier",label="{.loopexit:\l|  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #4\l  br label %15\l}"];
+	Node0x1b0b94a0 -> Node0x1b0b9000;
+	Node0x1b0b9640 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870" fontname="Courier",label="{.preheader:\l|  %10 = phi i32 [ %13, %.preheader ], [ 0, %8 ]\l  %11 = getelementptr inbounds nuw i8, ptr %0, i32 %10\l  %12 = getelementptr inbounds nuw i8, ptr %3, i32 %10\l  call void @aes128_encrypt_block(ptr noundef %11, ptr noundef nonnull %5, ptr\l... noundef %12)\l  %13 = add nuw i32 %10, 16\l  %14 = icmp ult i32 %13, %1\l  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !13\l|{<s0>T|<s1>F}}"];
+	Node0x1b0b9640:s0 -> Node0x1b0b9640;
+	Node0x1b0b9640:s1 -> Node0x1b0b94a0;
+	Node0x1b0b9000 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ca3b3770" fontname="Courier",label="{15:\l|  ret void\l}"];
+}

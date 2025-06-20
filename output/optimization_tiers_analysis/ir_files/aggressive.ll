@@ -1,0 +1,1084 @@
+; ModuleID = 'output/optimization_tiers_analysis/ir_files/aggressive_base.ll'
+source_filename = "software/main.c"
+target datalayout = "e-m:e-p:32:32-i64:64-n32-S128"
+target triple = "riscv32-unknown-unknown"
+
+@sbox = internal unnamed_addr constant [256 x i8] c"c|w{\F2ko\C50\01g+\FE\D7\ABv\CA\82\C9}\FAYG\F0\AD\D4\A2\AF\9C\A4r\C0\B7\FD\93&6?\F7\CC4\A5\E5\F1q\D81\15\04\C7#\C3\18\96\05\9A\07\12\80\E2\EB'\B2u\09\83,\1A\1BnZ\A0R;\D6\B3)\E3/\84S\D1\00\ED \FC\B1[j\CB\BE9JLX\CF\D0\EF\AA\FBCM3\85E\F9\02\7FP<\9F\A8Q\A3@\8F\92\9D8\F5\BC\B6\DA!\10\FF\F3\D2\CD\0C\13\EC_\97D\17\C4\A7~=d]\19s`\81O\DC\22*\90\88F\EE\B8\14\DE^\0B\DB\E02:\0AI\06$\\\C2\D3\ACb\91\95\E4y\E7\C87m\8D\D5N\A9lV\F4\EAez\AE\08\BAx%.\1C\A6\B4\C6\E8\DDt\1FK\BD\8B\8Ap>\B5fH\03\F6\0Ea5W\B9\86\C1\1D\9E\E1\F8\98\11i\D9\8E\94\9B\1E\87\E9\CEU(\DF\8C\A1\89\0D\BF\E6BhA\99-\0F\B0T\BB\16", align 1
+@__const.main.plaintext = private unnamed_addr constant [16 x i8] c"Hello, World!000", align 1
+@__const.main.key = private unnamed_addr constant [16 x i8] c"cese4040password", align 1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite)
+define dso_local void @expand_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 176)) %1) local_unnamed_addr #0 {
+  %3 = load i8, ptr %0, align 1, !tbaa !6
+  store i8 %3, ptr %1, align 1, !tbaa !6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i32 1
+  %5 = load i8, ptr %4, align 1, !tbaa !6
+  %6 = getelementptr inbounds nuw i8, ptr %1, i32 1
+  store i8 %5, ptr %6, align 1, !tbaa !6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i32 2
+  %8 = load i8, ptr %7, align 1, !tbaa !6
+  %9 = getelementptr inbounds nuw i8, ptr %1, i32 2
+  store i8 %8, ptr %9, align 1, !tbaa !6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i32 3
+  %11 = load i8, ptr %10, align 1, !tbaa !6
+  %12 = getelementptr inbounds nuw i8, ptr %1, i32 3
+  store i8 %11, ptr %12, align 1, !tbaa !6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i32 4
+  %14 = load i8, ptr %13, align 1, !tbaa !6
+  %15 = getelementptr inbounds nuw i8, ptr %1, i32 4
+  store i8 %14, ptr %15, align 1, !tbaa !6
+  %16 = getelementptr inbounds nuw i8, ptr %0, i32 5
+  %17 = load i8, ptr %16, align 1, !tbaa !6
+  %18 = getelementptr inbounds nuw i8, ptr %1, i32 5
+  store i8 %17, ptr %18, align 1, !tbaa !6
+  %19 = getelementptr inbounds nuw i8, ptr %0, i32 6
+  %20 = load i8, ptr %19, align 1, !tbaa !6
+  %21 = getelementptr inbounds nuw i8, ptr %1, i32 6
+  store i8 %20, ptr %21, align 1, !tbaa !6
+  %22 = getelementptr inbounds nuw i8, ptr %0, i32 7
+  %23 = load i8, ptr %22, align 1, !tbaa !6
+  %24 = getelementptr inbounds nuw i8, ptr %1, i32 7
+  store i8 %23, ptr %24, align 1, !tbaa !6
+  %25 = getelementptr inbounds nuw i8, ptr %0, i32 8
+  %26 = load i8, ptr %25, align 1, !tbaa !6
+  %27 = getelementptr inbounds nuw i8, ptr %1, i32 8
+  store i8 %26, ptr %27, align 1, !tbaa !6
+  %28 = getelementptr inbounds nuw i8, ptr %0, i32 9
+  %29 = load i8, ptr %28, align 1, !tbaa !6
+  %30 = getelementptr inbounds nuw i8, ptr %1, i32 9
+  store i8 %29, ptr %30, align 1, !tbaa !6
+  %31 = getelementptr inbounds nuw i8, ptr %0, i32 10
+  %32 = load i8, ptr %31, align 1, !tbaa !6
+  %33 = getelementptr inbounds nuw i8, ptr %1, i32 10
+  store i8 %32, ptr %33, align 1, !tbaa !6
+  %34 = getelementptr inbounds nuw i8, ptr %0, i32 11
+  %35 = load i8, ptr %34, align 1, !tbaa !6
+  %36 = getelementptr inbounds nuw i8, ptr %1, i32 11
+  store i8 %35, ptr %36, align 1, !tbaa !6
+  %37 = getelementptr inbounds nuw i8, ptr %0, i32 12
+  %38 = load i8, ptr %37, align 1, !tbaa !6
+  %39 = getelementptr inbounds nuw i8, ptr %1, i32 12
+  store i8 %38, ptr %39, align 1, !tbaa !6
+  %40 = getelementptr inbounds nuw i8, ptr %0, i32 13
+  %41 = load i8, ptr %40, align 1, !tbaa !6
+  %42 = getelementptr inbounds nuw i8, ptr %1, i32 13
+  store i8 %41, ptr %42, align 1, !tbaa !6
+  %43 = getelementptr inbounds nuw i8, ptr %0, i32 14
+  %44 = load i8, ptr %43, align 1, !tbaa !6
+  %45 = getelementptr inbounds nuw i8, ptr %1, i32 14
+  store i8 %44, ptr %45, align 1, !tbaa !6
+  %46 = getelementptr inbounds nuw i8, ptr %0, i32 15
+  %47 = load i8, ptr %46, align 1, !tbaa !6
+  %48 = getelementptr inbounds nuw i8, ptr %1, i32 15
+  store i8 %47, ptr %48, align 1, !tbaa !6
+  %49 = getelementptr i8, ptr %1, i32 16
+  %50 = zext i8 %41 to i32
+  %51 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %50
+  %52 = load i8, ptr %51, align 1, !tbaa !6
+  %53 = zext i8 %38 to i32
+  %54 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %53
+  %55 = load i8, ptr %54, align 1, !tbaa !6
+  %56 = zext i8 %47 to i32
+  %57 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %56
+  %58 = load i8, ptr %57, align 1, !tbaa !6
+  %59 = zext i8 %44 to i32
+  %60 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !6
+  %62 = xor i8 %52, %3
+  %63 = xor i8 %62, 1
+  store i8 %63, ptr %49, align 1, !tbaa !6
+  %64 = xor i8 %5, %61
+  %65 = getelementptr i8, ptr %1, i32 17
+  store i8 %64, ptr %65, align 1, !tbaa !6
+  %66 = xor i8 %8, %58
+  %67 = getelementptr i8, ptr %1, i32 18
+  store i8 %66, ptr %67, align 1, !tbaa !6
+  %68 = xor i8 %11, %55
+  %69 = getelementptr i8, ptr %1, i32 19
+  store i8 %68, ptr %69, align 1, !tbaa !6
+  %70 = getelementptr i8, ptr %1, i32 20
+  %71 = xor i8 %14, %63
+  store i8 %71, ptr %70, align 1, !tbaa !6
+  %72 = xor i8 %17, %64
+  %73 = getelementptr i8, ptr %1, i32 21
+  store i8 %72, ptr %73, align 1, !tbaa !6
+  %74 = xor i8 %20, %66
+  %75 = getelementptr i8, ptr %1, i32 22
+  store i8 %74, ptr %75, align 1, !tbaa !6
+  %76 = xor i8 %23, %68
+  %77 = getelementptr i8, ptr %1, i32 23
+  store i8 %76, ptr %77, align 1, !tbaa !6
+  %78 = getelementptr i8, ptr %1, i32 24
+  %79 = xor i8 %26, %71
+  store i8 %79, ptr %78, align 1, !tbaa !6
+  %80 = xor i8 %29, %72
+  %81 = getelementptr i8, ptr %1, i32 25
+  store i8 %80, ptr %81, align 1, !tbaa !6
+  %82 = xor i8 %32, %74
+  %83 = getelementptr i8, ptr %1, i32 26
+  store i8 %82, ptr %83, align 1, !tbaa !6
+  %84 = xor i8 %35, %76
+  %85 = getelementptr i8, ptr %1, i32 27
+  store i8 %84, ptr %85, align 1, !tbaa !6
+  %86 = getelementptr i8, ptr %1, i32 28
+  %87 = xor i8 %38, %79
+  store i8 %87, ptr %86, align 1, !tbaa !6
+  %88 = xor i8 %41, %80
+  %89 = getelementptr i8, ptr %1, i32 29
+  store i8 %88, ptr %89, align 1, !tbaa !6
+  %90 = xor i8 %44, %82
+  %91 = getelementptr i8, ptr %1, i32 30
+  store i8 %90, ptr %91, align 1, !tbaa !6
+  %92 = xor i8 %47, %84
+  %93 = getelementptr i8, ptr %1, i32 31
+  store i8 %92, ptr %93, align 1, !tbaa !6
+  %94 = getelementptr i8, ptr %1, i32 32
+  %95 = zext i8 %88 to i32
+  %96 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %95
+  %97 = load i8, ptr %96, align 1, !tbaa !6
+  %98 = zext i8 %87 to i32
+  %99 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %98
+  %100 = load i8, ptr %99, align 1, !tbaa !6
+  %101 = zext i8 %92 to i32
+  %102 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %101
+  %103 = load i8, ptr %102, align 1, !tbaa !6
+  %104 = zext i8 %90 to i32
+  %105 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %104
+  %106 = load i8, ptr %105, align 1, !tbaa !6
+  %107 = xor i8 %97, %63
+  %108 = xor i8 %107, 2
+  store i8 %108, ptr %94, align 1, !tbaa !6
+  %109 = xor i8 %64, %106
+  %110 = getelementptr i8, ptr %1, i32 33
+  store i8 %109, ptr %110, align 1, !tbaa !6
+  %111 = xor i8 %66, %103
+  %112 = getelementptr i8, ptr %1, i32 34
+  store i8 %111, ptr %112, align 1, !tbaa !6
+  %113 = xor i8 %68, %100
+  %114 = getelementptr i8, ptr %1, i32 35
+  store i8 %113, ptr %114, align 1, !tbaa !6
+  %115 = getelementptr i8, ptr %1, i32 36
+  %116 = xor i8 %71, %108
+  store i8 %116, ptr %115, align 1, !tbaa !6
+  %117 = xor i8 %17, %106
+  %118 = getelementptr i8, ptr %1, i32 37
+  store i8 %117, ptr %118, align 1, !tbaa !6
+  %119 = xor i8 %20, %103
+  %120 = getelementptr i8, ptr %1, i32 38
+  store i8 %119, ptr %120, align 1, !tbaa !6
+  %121 = xor i8 %23, %100
+  %122 = getelementptr i8, ptr %1, i32 39
+  store i8 %121, ptr %122, align 1, !tbaa !6
+  %123 = getelementptr i8, ptr %1, i32 40
+  %124 = xor i8 %26, %108
+  store i8 %124, ptr %123, align 1, !tbaa !6
+  %125 = xor i8 %80, %117
+  %126 = getelementptr i8, ptr %1, i32 41
+  store i8 %125, ptr %126, align 1, !tbaa !6
+  %127 = xor i8 %82, %119
+  %128 = getelementptr i8, ptr %1, i32 42
+  store i8 %127, ptr %128, align 1, !tbaa !6
+  %129 = xor i8 %84, %121
+  %130 = getelementptr i8, ptr %1, i32 43
+  store i8 %129, ptr %130, align 1, !tbaa !6
+  %131 = getelementptr i8, ptr %1, i32 44
+  %132 = xor i8 %87, %124
+  store i8 %132, ptr %131, align 1, !tbaa !6
+  %133 = xor i8 %41, %117
+  %134 = getelementptr i8, ptr %1, i32 45
+  store i8 %133, ptr %134, align 1, !tbaa !6
+  %135 = xor i8 %44, %119
+  %136 = getelementptr i8, ptr %1, i32 46
+  store i8 %135, ptr %136, align 1, !tbaa !6
+  %137 = xor i8 %47, %121
+  %138 = getelementptr i8, ptr %1, i32 47
+  store i8 %137, ptr %138, align 1, !tbaa !6
+  %139 = getelementptr i8, ptr %1, i32 48
+  %140 = zext i8 %133 to i32
+  %141 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %140
+  %142 = load i8, ptr %141, align 1, !tbaa !6
+  %143 = zext i8 %132 to i32
+  %144 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %143
+  %145 = load i8, ptr %144, align 1, !tbaa !6
+  %146 = zext i8 %137 to i32
+  %147 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %146
+  %148 = load i8, ptr %147, align 1, !tbaa !6
+  %149 = zext i8 %135 to i32
+  %150 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %149
+  %151 = load i8, ptr %150, align 1, !tbaa !6
+  %152 = xor i8 %142, %108
+  %153 = xor i8 %152, 4
+  store i8 %153, ptr %139, align 1, !tbaa !6
+  %154 = xor i8 %109, %151
+  %155 = getelementptr i8, ptr %1, i32 49
+  store i8 %154, ptr %155, align 1, !tbaa !6
+  %156 = xor i8 %111, %148
+  %157 = getelementptr i8, ptr %1, i32 50
+  store i8 %156, ptr %157, align 1, !tbaa !6
+  %158 = xor i8 %113, %145
+  %159 = getelementptr i8, ptr %1, i32 51
+  store i8 %158, ptr %159, align 1, !tbaa !6
+  %160 = getelementptr i8, ptr %1, i32 52
+  %161 = xor i8 %116, %153
+  store i8 %161, ptr %160, align 1, !tbaa !6
+  %162 = xor i8 %117, %154
+  %163 = getelementptr i8, ptr %1, i32 53
+  store i8 %162, ptr %163, align 1, !tbaa !6
+  %164 = xor i8 %119, %156
+  %165 = getelementptr i8, ptr %1, i32 54
+  store i8 %164, ptr %165, align 1, !tbaa !6
+  %166 = xor i8 %121, %158
+  %167 = getelementptr i8, ptr %1, i32 55
+  store i8 %166, ptr %167, align 1, !tbaa !6
+  %168 = getelementptr i8, ptr %1, i32 56
+  %169 = xor i8 %124, %161
+  store i8 %169, ptr %168, align 1, !tbaa !6
+  %170 = xor i8 %80, %154
+  %171 = getelementptr i8, ptr %1, i32 57
+  store i8 %170, ptr %171, align 1, !tbaa !6
+  %172 = xor i8 %82, %156
+  %173 = getelementptr i8, ptr %1, i32 58
+  store i8 %172, ptr %173, align 1, !tbaa !6
+  %174 = xor i8 %84, %158
+  %175 = getelementptr i8, ptr %1, i32 59
+  store i8 %174, ptr %175, align 1, !tbaa !6
+  %176 = getelementptr i8, ptr %1, i32 60
+  %177 = xor i8 %87, %161
+  store i8 %177, ptr %176, align 1, !tbaa !6
+  %178 = xor i8 %133, %170
+  %179 = getelementptr i8, ptr %1, i32 61
+  store i8 %178, ptr %179, align 1, !tbaa !6
+  %180 = xor i8 %135, %172
+  %181 = getelementptr i8, ptr %1, i32 62
+  store i8 %180, ptr %181, align 1, !tbaa !6
+  %182 = xor i8 %137, %174
+  %183 = getelementptr i8, ptr %1, i32 63
+  store i8 %182, ptr %183, align 1, !tbaa !6
+  %184 = getelementptr i8, ptr %1, i32 64
+  %185 = zext i8 %178 to i32
+  %186 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %185
+  %187 = load i8, ptr %186, align 1, !tbaa !6
+  %188 = zext i8 %177 to i32
+  %189 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %188
+  %190 = load i8, ptr %189, align 1, !tbaa !6
+  %191 = zext i8 %182 to i32
+  %192 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %191
+  %193 = load i8, ptr %192, align 1, !tbaa !6
+  %194 = zext i8 %180 to i32
+  %195 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %194
+  %196 = load i8, ptr %195, align 1, !tbaa !6
+  %197 = xor i8 %187, %153
+  %198 = xor i8 %197, 8
+  store i8 %198, ptr %184, align 1, !tbaa !6
+  %199 = xor i8 %154, %196
+  %200 = getelementptr i8, ptr %1, i32 65
+  store i8 %199, ptr %200, align 1, !tbaa !6
+  %201 = xor i8 %156, %193
+  %202 = getelementptr i8, ptr %1, i32 66
+  store i8 %201, ptr %202, align 1, !tbaa !6
+  %203 = xor i8 %158, %190
+  %204 = getelementptr i8, ptr %1, i32 67
+  store i8 %203, ptr %204, align 1, !tbaa !6
+  %205 = getelementptr i8, ptr %1, i32 68
+  %206 = xor i8 %161, %198
+  store i8 %206, ptr %205, align 1, !tbaa !6
+  %207 = xor i8 %117, %196
+  %208 = getelementptr i8, ptr %1, i32 69
+  store i8 %207, ptr %208, align 1, !tbaa !6
+  %209 = xor i8 %119, %193
+  %210 = getelementptr i8, ptr %1, i32 70
+  store i8 %209, ptr %210, align 1, !tbaa !6
+  %211 = xor i8 %121, %190
+  %212 = getelementptr i8, ptr %1, i32 71
+  store i8 %211, ptr %212, align 1, !tbaa !6
+  %213 = getelementptr i8, ptr %1, i32 72
+  %214 = xor i8 %124, %198
+  store i8 %214, ptr %213, align 1, !tbaa !6
+  %215 = xor i8 %170, %207
+  %216 = getelementptr i8, ptr %1, i32 73
+  store i8 %215, ptr %216, align 1, !tbaa !6
+  %217 = xor i8 %172, %209
+  %218 = getelementptr i8, ptr %1, i32 74
+  store i8 %217, ptr %218, align 1, !tbaa !6
+  %219 = xor i8 %174, %211
+  %220 = getelementptr i8, ptr %1, i32 75
+  store i8 %219, ptr %220, align 1, !tbaa !6
+  %221 = getelementptr i8, ptr %1, i32 76
+  %222 = xor i8 %177, %214
+  store i8 %222, ptr %221, align 1, !tbaa !6
+  %223 = xor i8 %41, %196
+  %224 = getelementptr i8, ptr %1, i32 77
+  store i8 %223, ptr %224, align 1, !tbaa !6
+  %225 = xor i8 %44, %193
+  %226 = getelementptr i8, ptr %1, i32 78
+  store i8 %225, ptr %226, align 1, !tbaa !6
+  %227 = xor i8 %47, %190
+  %228 = getelementptr i8, ptr %1, i32 79
+  store i8 %227, ptr %228, align 1, !tbaa !6
+  %229 = getelementptr i8, ptr %1, i32 80
+  %230 = zext i8 %223 to i32
+  %231 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %230
+  %232 = load i8, ptr %231, align 1, !tbaa !6
+  %233 = zext i8 %222 to i32
+  %234 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %233
+  %235 = load i8, ptr %234, align 1, !tbaa !6
+  %236 = zext i8 %227 to i32
+  %237 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %236
+  %238 = load i8, ptr %237, align 1, !tbaa !6
+  %239 = zext i8 %225 to i32
+  %240 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %239
+  %241 = load i8, ptr %240, align 1, !tbaa !6
+  %242 = xor i8 %232, %198
+  %243 = xor i8 %242, 16
+  store i8 %243, ptr %229, align 1, !tbaa !6
+  %244 = xor i8 %199, %241
+  %245 = getelementptr i8, ptr %1, i32 81
+  store i8 %244, ptr %245, align 1, !tbaa !6
+  %246 = xor i8 %201, %238
+  %247 = getelementptr i8, ptr %1, i32 82
+  store i8 %246, ptr %247, align 1, !tbaa !6
+  %248 = xor i8 %203, %235
+  %249 = getelementptr i8, ptr %1, i32 83
+  store i8 %248, ptr %249, align 1, !tbaa !6
+  %250 = getelementptr i8, ptr %1, i32 84
+  %251 = xor i8 %206, %243
+  store i8 %251, ptr %250, align 1, !tbaa !6
+  %252 = xor i8 %207, %244
+  %253 = getelementptr i8, ptr %1, i32 85
+  store i8 %252, ptr %253, align 1, !tbaa !6
+  %254 = xor i8 %209, %246
+  %255 = getelementptr i8, ptr %1, i32 86
+  store i8 %254, ptr %255, align 1, !tbaa !6
+  %256 = xor i8 %211, %248
+  %257 = getelementptr i8, ptr %1, i32 87
+  store i8 %256, ptr %257, align 1, !tbaa !6
+  %258 = getelementptr i8, ptr %1, i32 88
+  %259 = xor i8 %214, %251
+  store i8 %259, ptr %258, align 1, !tbaa !6
+  %260 = xor i8 %170, %244
+  %261 = getelementptr i8, ptr %1, i32 89
+  store i8 %260, ptr %261, align 1, !tbaa !6
+  %262 = xor i8 %172, %246
+  %263 = getelementptr i8, ptr %1, i32 90
+  store i8 %262, ptr %263, align 1, !tbaa !6
+  %264 = xor i8 %174, %248
+  %265 = getelementptr i8, ptr %1, i32 91
+  store i8 %264, ptr %265, align 1, !tbaa !6
+  %266 = getelementptr i8, ptr %1, i32 92
+  %267 = xor i8 %177, %251
+  store i8 %267, ptr %266, align 1, !tbaa !6
+  %268 = xor i8 %223, %260
+  %269 = getelementptr i8, ptr %1, i32 93
+  store i8 %268, ptr %269, align 1, !tbaa !6
+  %270 = xor i8 %225, %262
+  %271 = getelementptr i8, ptr %1, i32 94
+  store i8 %270, ptr %271, align 1, !tbaa !6
+  %272 = xor i8 %227, %264
+  %273 = getelementptr i8, ptr %1, i32 95
+  store i8 %272, ptr %273, align 1, !tbaa !6
+  %274 = getelementptr i8, ptr %1, i32 96
+  %275 = zext i8 %268 to i32
+  %276 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %275
+  %277 = load i8, ptr %276, align 1, !tbaa !6
+  %278 = zext i8 %267 to i32
+  %279 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %278
+  %280 = load i8, ptr %279, align 1, !tbaa !6
+  %281 = zext i8 %272 to i32
+  %282 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %281
+  %283 = load i8, ptr %282, align 1, !tbaa !6
+  %284 = zext i8 %270 to i32
+  %285 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %284
+  %286 = load i8, ptr %285, align 1, !tbaa !6
+  %287 = xor i8 %277, %243
+  %288 = xor i8 %287, 32
+  store i8 %288, ptr %274, align 1, !tbaa !6
+  %289 = xor i8 %244, %286
+  %290 = getelementptr i8, ptr %1, i32 97
+  store i8 %289, ptr %290, align 1, !tbaa !6
+  %291 = xor i8 %246, %283
+  %292 = getelementptr i8, ptr %1, i32 98
+  store i8 %291, ptr %292, align 1, !tbaa !6
+  %293 = xor i8 %248, %280
+  %294 = getelementptr i8, ptr %1, i32 99
+  store i8 %293, ptr %294, align 1, !tbaa !6
+  %295 = getelementptr i8, ptr %1, i32 100
+  %296 = xor i8 %251, %288
+  store i8 %296, ptr %295, align 1, !tbaa !6
+  %297 = xor i8 %207, %286
+  %298 = getelementptr i8, ptr %1, i32 101
+  store i8 %297, ptr %298, align 1, !tbaa !6
+  %299 = xor i8 %209, %283
+  %300 = getelementptr i8, ptr %1, i32 102
+  store i8 %299, ptr %300, align 1, !tbaa !6
+  %301 = xor i8 %211, %280
+  %302 = getelementptr i8, ptr %1, i32 103
+  store i8 %301, ptr %302, align 1, !tbaa !6
+  %303 = getelementptr i8, ptr %1, i32 104
+  %304 = xor i8 %214, %288
+  store i8 %304, ptr %303, align 1, !tbaa !6
+  %305 = xor i8 %260, %297
+  %306 = getelementptr i8, ptr %1, i32 105
+  store i8 %305, ptr %306, align 1, !tbaa !6
+  %307 = xor i8 %262, %299
+  %308 = getelementptr i8, ptr %1, i32 106
+  store i8 %307, ptr %308, align 1, !tbaa !6
+  %309 = xor i8 %264, %301
+  %310 = getelementptr i8, ptr %1, i32 107
+  store i8 %309, ptr %310, align 1, !tbaa !6
+  %311 = getelementptr i8, ptr %1, i32 108
+  %312 = xor i8 %267, %304
+  store i8 %312, ptr %311, align 1, !tbaa !6
+  %313 = xor i8 %223, %297
+  %314 = getelementptr i8, ptr %1, i32 109
+  store i8 %313, ptr %314, align 1, !tbaa !6
+  %315 = xor i8 %225, %299
+  %316 = getelementptr i8, ptr %1, i32 110
+  store i8 %315, ptr %316, align 1, !tbaa !6
+  %317 = xor i8 %227, %301
+  %318 = getelementptr i8, ptr %1, i32 111
+  store i8 %317, ptr %318, align 1, !tbaa !6
+  %319 = getelementptr i8, ptr %1, i32 112
+  %320 = zext i8 %313 to i32
+  %321 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %320
+  %322 = load i8, ptr %321, align 1, !tbaa !6
+  %323 = zext i8 %312 to i32
+  %324 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %323
+  %325 = load i8, ptr %324, align 1, !tbaa !6
+  %326 = zext i8 %317 to i32
+  %327 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %326
+  %328 = load i8, ptr %327, align 1, !tbaa !6
+  %329 = zext i8 %315 to i32
+  %330 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %329
+  %331 = load i8, ptr %330, align 1, !tbaa !6
+  %332 = xor i8 %322, %288
+  %333 = xor i8 %332, 64
+  store i8 %333, ptr %319, align 1, !tbaa !6
+  %334 = xor i8 %289, %331
+  %335 = getelementptr i8, ptr %1, i32 113
+  store i8 %334, ptr %335, align 1, !tbaa !6
+  %336 = xor i8 %291, %328
+  %337 = getelementptr i8, ptr %1, i32 114
+  store i8 %336, ptr %337, align 1, !tbaa !6
+  %338 = xor i8 %293, %325
+  %339 = getelementptr i8, ptr %1, i32 115
+  store i8 %338, ptr %339, align 1, !tbaa !6
+  %340 = getelementptr i8, ptr %1, i32 116
+  %341 = xor i8 %296, %333
+  store i8 %341, ptr %340, align 1, !tbaa !6
+  %342 = xor i8 %297, %334
+  %343 = getelementptr i8, ptr %1, i32 117
+  store i8 %342, ptr %343, align 1, !tbaa !6
+  %344 = xor i8 %299, %336
+  %345 = getelementptr i8, ptr %1, i32 118
+  store i8 %344, ptr %345, align 1, !tbaa !6
+  %346 = xor i8 %301, %338
+  %347 = getelementptr i8, ptr %1, i32 119
+  store i8 %346, ptr %347, align 1, !tbaa !6
+  %348 = getelementptr i8, ptr %1, i32 120
+  %349 = xor i8 %304, %341
+  store i8 %349, ptr %348, align 1, !tbaa !6
+  %350 = xor i8 %260, %334
+  %351 = getelementptr i8, ptr %1, i32 121
+  store i8 %350, ptr %351, align 1, !tbaa !6
+  %352 = xor i8 %262, %336
+  %353 = getelementptr i8, ptr %1, i32 122
+  store i8 %352, ptr %353, align 1, !tbaa !6
+  %354 = xor i8 %264, %338
+  %355 = getelementptr i8, ptr %1, i32 123
+  store i8 %354, ptr %355, align 1, !tbaa !6
+  %356 = getelementptr i8, ptr %1, i32 124
+  %357 = xor i8 %267, %341
+  store i8 %357, ptr %356, align 1, !tbaa !6
+  %358 = xor i8 %313, %350
+  %359 = getelementptr i8, ptr %1, i32 125
+  store i8 %358, ptr %359, align 1, !tbaa !6
+  %360 = xor i8 %315, %352
+  %361 = getelementptr i8, ptr %1, i32 126
+  store i8 %360, ptr %361, align 1, !tbaa !6
+  %362 = xor i8 %317, %354
+  %363 = getelementptr i8, ptr %1, i32 127
+  store i8 %362, ptr %363, align 1, !tbaa !6
+  %364 = getelementptr i8, ptr %1, i32 128
+  %365 = zext i8 %358 to i32
+  %366 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %365
+  %367 = load i8, ptr %366, align 1, !tbaa !6
+  %368 = zext i8 %357 to i32
+  %369 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %368
+  %370 = load i8, ptr %369, align 1, !tbaa !6
+  %371 = zext i8 %362 to i32
+  %372 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %371
+  %373 = load i8, ptr %372, align 1, !tbaa !6
+  %374 = zext i8 %360 to i32
+  %375 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %374
+  %376 = load i8, ptr %375, align 1, !tbaa !6
+  %377 = xor i8 %367, %333
+  %378 = xor i8 %377, -128
+  store i8 %378, ptr %364, align 1, !tbaa !6
+  %379 = xor i8 %334, %376
+  %380 = getelementptr i8, ptr %1, i32 129
+  store i8 %379, ptr %380, align 1, !tbaa !6
+  %381 = xor i8 %336, %373
+  %382 = getelementptr i8, ptr %1, i32 130
+  store i8 %381, ptr %382, align 1, !tbaa !6
+  %383 = xor i8 %338, %370
+  %384 = getelementptr i8, ptr %1, i32 131
+  store i8 %383, ptr %384, align 1, !tbaa !6
+  %385 = getelementptr i8, ptr %1, i32 132
+  %386 = xor i8 %341, %378
+  store i8 %386, ptr %385, align 1, !tbaa !6
+  %387 = xor i8 %297, %376
+  %388 = getelementptr i8, ptr %1, i32 133
+  store i8 %387, ptr %388, align 1, !tbaa !6
+  %389 = xor i8 %299, %373
+  %390 = getelementptr i8, ptr %1, i32 134
+  store i8 %389, ptr %390, align 1, !tbaa !6
+  %391 = xor i8 %301, %370
+  %392 = getelementptr i8, ptr %1, i32 135
+  store i8 %391, ptr %392, align 1, !tbaa !6
+  %393 = getelementptr i8, ptr %1, i32 136
+  %394 = xor i8 %304, %378
+  store i8 %394, ptr %393, align 1, !tbaa !6
+  %395 = xor i8 %350, %387
+  %396 = getelementptr i8, ptr %1, i32 137
+  store i8 %395, ptr %396, align 1, !tbaa !6
+  %397 = xor i8 %352, %389
+  %398 = getelementptr i8, ptr %1, i32 138
+  store i8 %397, ptr %398, align 1, !tbaa !6
+  %399 = xor i8 %354, %391
+  %400 = getelementptr i8, ptr %1, i32 139
+  store i8 %399, ptr %400, align 1, !tbaa !6
+  %401 = getelementptr i8, ptr %1, i32 140
+  %402 = xor i8 %357, %394
+  store i8 %402, ptr %401, align 1, !tbaa !6
+  %403 = xor i8 %223, %376
+  %404 = getelementptr i8, ptr %1, i32 141
+  store i8 %403, ptr %404, align 1, !tbaa !6
+  %405 = xor i8 %225, %373
+  %406 = getelementptr i8, ptr %1, i32 142
+  store i8 %405, ptr %406, align 1, !tbaa !6
+  %407 = xor i8 %227, %370
+  %408 = getelementptr i8, ptr %1, i32 143
+  store i8 %407, ptr %408, align 1, !tbaa !6
+  %409 = getelementptr i8, ptr %1, i32 144
+  %410 = zext i8 %403 to i32
+  %411 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %410
+  %412 = load i8, ptr %411, align 1, !tbaa !6
+  %413 = zext i8 %402 to i32
+  %414 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %413
+  %415 = load i8, ptr %414, align 1, !tbaa !6
+  %416 = zext i8 %407 to i32
+  %417 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %416
+  %418 = load i8, ptr %417, align 1, !tbaa !6
+  %419 = zext i8 %405 to i32
+  %420 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %419
+  %421 = load i8, ptr %420, align 1, !tbaa !6
+  %422 = xor i8 %412, %378
+  %423 = xor i8 %422, 27
+  store i8 %423, ptr %409, align 1, !tbaa !6
+  %424 = xor i8 %379, %421
+  %425 = getelementptr i8, ptr %1, i32 145
+  store i8 %424, ptr %425, align 1, !tbaa !6
+  %426 = xor i8 %381, %418
+  %427 = getelementptr i8, ptr %1, i32 146
+  store i8 %426, ptr %427, align 1, !tbaa !6
+  %428 = xor i8 %383, %415
+  %429 = getelementptr i8, ptr %1, i32 147
+  store i8 %428, ptr %429, align 1, !tbaa !6
+  %430 = getelementptr i8, ptr %1, i32 148
+  %431 = xor i8 %386, %423
+  store i8 %431, ptr %430, align 1, !tbaa !6
+  %432 = xor i8 %387, %424
+  %433 = getelementptr i8, ptr %1, i32 149
+  store i8 %432, ptr %433, align 1, !tbaa !6
+  %434 = xor i8 %389, %426
+  %435 = getelementptr i8, ptr %1, i32 150
+  store i8 %434, ptr %435, align 1, !tbaa !6
+  %436 = xor i8 %391, %428
+  %437 = getelementptr i8, ptr %1, i32 151
+  store i8 %436, ptr %437, align 1, !tbaa !6
+  %438 = getelementptr i8, ptr %1, i32 152
+  %439 = xor i8 %394, %431
+  store i8 %439, ptr %438, align 1, !tbaa !6
+  %440 = xor i8 %350, %424
+  %441 = getelementptr i8, ptr %1, i32 153
+  store i8 %440, ptr %441, align 1, !tbaa !6
+  %442 = xor i8 %352, %426
+  %443 = getelementptr i8, ptr %1, i32 154
+  store i8 %442, ptr %443, align 1, !tbaa !6
+  %444 = xor i8 %354, %428
+  %445 = getelementptr i8, ptr %1, i32 155
+  store i8 %444, ptr %445, align 1, !tbaa !6
+  %446 = getelementptr i8, ptr %1, i32 156
+  %447 = xor i8 %357, %431
+  store i8 %447, ptr %446, align 1, !tbaa !6
+  %448 = xor i8 %403, %440
+  %449 = getelementptr i8, ptr %1, i32 157
+  store i8 %448, ptr %449, align 1, !tbaa !6
+  %450 = xor i8 %405, %442
+  %451 = getelementptr i8, ptr %1, i32 158
+  store i8 %450, ptr %451, align 1, !tbaa !6
+  %452 = xor i8 %407, %444
+  %453 = getelementptr i8, ptr %1, i32 159
+  store i8 %452, ptr %453, align 1, !tbaa !6
+  %454 = getelementptr i8, ptr %1, i32 160
+  %455 = zext i8 %448 to i32
+  %456 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %455
+  %457 = load i8, ptr %456, align 1, !tbaa !6
+  %458 = zext i8 %447 to i32
+  %459 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %458
+  %460 = load i8, ptr %459, align 1, !tbaa !6
+  %461 = zext i8 %452 to i32
+  %462 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %461
+  %463 = load i8, ptr %462, align 1, !tbaa !6
+  %464 = zext i8 %450 to i32
+  %465 = getelementptr inbounds nuw [256 x i8], ptr @sbox, i32 0, i32 %464
+  %466 = load i8, ptr %465, align 1, !tbaa !6
+  %467 = xor i8 %457, %423
+  %468 = xor i8 %467, 54
+  store i8 %468, ptr %454, align 1, !tbaa !6
+  %469 = xor i8 %424, %466
+  %470 = getelementptr i8, ptr %1, i32 161
+  store i8 %469, ptr %470, align 1, !tbaa !6
+  %471 = xor i8 %426, %463
+  %472 = getelementptr i8, ptr %1, i32 162
+  store i8 %471, ptr %472, align 1, !tbaa !6
+  %473 = xor i8 %428, %460
+  %474 = getelementptr i8, ptr %1, i32 163
+  store i8 %473, ptr %474, align 1, !tbaa !6
+  %475 = getelementptr i8, ptr %1, i32 164
+  %476 = xor i8 %431, %468
+  store i8 %476, ptr %475, align 1, !tbaa !6
+  %477 = xor i8 %387, %466
+  %478 = getelementptr i8, ptr %1, i32 165
+  store i8 %477, ptr %478, align 1, !tbaa !6
+  %479 = xor i8 %389, %463
+  %480 = getelementptr i8, ptr %1, i32 166
+  store i8 %479, ptr %480, align 1, !tbaa !6
+  %481 = xor i8 %391, %460
+  %482 = getelementptr i8, ptr %1, i32 167
+  store i8 %481, ptr %482, align 1, !tbaa !6
+  %483 = getelementptr i8, ptr %1, i32 168
+  %484 = xor i8 %394, %468
+  store i8 %484, ptr %483, align 1, !tbaa !6
+  %485 = xor i8 %440, %477
+  %486 = getelementptr i8, ptr %1, i32 169
+  store i8 %485, ptr %486, align 1, !tbaa !6
+  %487 = xor i8 %442, %479
+  %488 = getelementptr i8, ptr %1, i32 170
+  store i8 %487, ptr %488, align 1, !tbaa !6
+  %489 = xor i8 %444, %481
+  %490 = getelementptr i8, ptr %1, i32 171
+  store i8 %489, ptr %490, align 1, !tbaa !6
+  %491 = getelementptr i8, ptr %1, i32 172
+  %492 = xor i8 %447, %484
+  store i8 %492, ptr %491, align 1, !tbaa !6
+  %493 = xor i8 %403, %477
+  %494 = getelementptr i8, ptr %1, i32 173
+  store i8 %493, ptr %494, align 1, !tbaa !6
+  %495 = xor i8 %405, %479
+  %496 = getelementptr i8, ptr %1, i32 174
+  store i8 %495, ptr %496, align 1, !tbaa !6
+  %497 = xor i8 %407, %481
+  %498 = getelementptr i8, ptr %1, i32 175
+  store i8 %497, ptr %498, align 1, !tbaa !6
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind
+define dso_local void @aes128_encrypt_block(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #2 {
+  %4 = load i32, ptr %0, align 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i32 4
+  %6 = load i32, ptr %5, align 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i32 8
+  %8 = load i32, ptr %7, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i32 12
+  %10 = load i32, ptr %9, align 1
+  %11 = load i32, ptr %1, align 4, !tbaa !9
+  %12 = xor i32 %4, %11
+  %13 = getelementptr inbounds nuw i8, ptr %1, i32 4
+  %14 = load i32, ptr %13, align 4, !tbaa !9
+  %15 = xor i32 %6, %14
+  %16 = getelementptr inbounds nuw i8, ptr %1, i32 8
+  %17 = load i32, ptr %16, align 4, !tbaa !9
+  %18 = xor i32 %8, %17
+  %19 = getelementptr inbounds nuw i8, ptr %1, i32 12
+  %20 = load i32, ptr %19, align 4, !tbaa !9
+  %21 = xor i32 %10, %20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i32 16
+  %23 = load i32, ptr %22, align 4, !tbaa !9
+  %24 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %23, i32 %12, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %25 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %24, i32 %15, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %26 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %25, i32 %18, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %27 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %26, i32 %21, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %28 = getelementptr inbounds nuw i8, ptr %1, i32 20
+  %29 = load i32, ptr %28, align 4, !tbaa !9
+  %30 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %29, i32 %15, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %31 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %30, i32 %18, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %32 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %31, i32 %21, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %33 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %32, i32 %12, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %34 = getelementptr inbounds nuw i8, ptr %1, i32 24
+  %35 = load i32, ptr %34, align 4, !tbaa !9
+  %36 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %35, i32 %18, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %37 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %36, i32 %21, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %38 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %37, i32 %12, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %39 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %38, i32 %15, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %40 = getelementptr inbounds nuw i8, ptr %1, i32 28
+  %41 = load i32, ptr %40, align 4, !tbaa !9
+  %42 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %41, i32 %21, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %43 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %42, i32 %12, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %44 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %43, i32 %15, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %45 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %44, i32 %18, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %46 = getelementptr inbounds nuw i8, ptr %1, i32 32
+  %47 = load i32, ptr %46, align 4, !tbaa !9
+  %48 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %47, i32 %27, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %49 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %48, i32 %33, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %50 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %49, i32 %39, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %51 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %50, i32 %45, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %52 = getelementptr inbounds nuw i8, ptr %1, i32 36
+  %53 = load i32, ptr %52, align 4, !tbaa !9
+  %54 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %53, i32 %33, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %55 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %54, i32 %39, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %56 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %55, i32 %45, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %57 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %56, i32 %27, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %58 = getelementptr inbounds nuw i8, ptr %1, i32 40
+  %59 = load i32, ptr %58, align 4, !tbaa !9
+  %60 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %59, i32 %39, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %61 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %60, i32 %45, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %62 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %61, i32 %27, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %63 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %62, i32 %33, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %64 = getelementptr inbounds nuw i8, ptr %1, i32 44
+  %65 = load i32, ptr %64, align 4, !tbaa !9
+  %66 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %65, i32 %45, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %67 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %66, i32 %27, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %68 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %67, i32 %33, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %69 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %68, i32 %39, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %70 = getelementptr inbounds nuw i8, ptr %1, i32 48
+  %71 = load i32, ptr %70, align 4, !tbaa !9
+  %72 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %71, i32 %51, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %73 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %72, i32 %57, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %74 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %73, i32 %63, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %75 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %74, i32 %69, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %76 = getelementptr inbounds nuw i8, ptr %1, i32 52
+  %77 = load i32, ptr %76, align 4, !tbaa !9
+  %78 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %77, i32 %57, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %79 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %78, i32 %63, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %80 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %79, i32 %69, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %81 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %80, i32 %51, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %82 = getelementptr inbounds nuw i8, ptr %1, i32 56
+  %83 = load i32, ptr %82, align 4, !tbaa !9
+  %84 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %83, i32 %63, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %85 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %84, i32 %69, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %86 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %85, i32 %51, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %87 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %86, i32 %57, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %88 = getelementptr inbounds nuw i8, ptr %1, i32 60
+  %89 = load i32, ptr %88, align 4, !tbaa !9
+  %90 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %89, i32 %69, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %91 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %90, i32 %51, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %92 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %91, i32 %57, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %93 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %92, i32 %63, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %94 = getelementptr inbounds nuw i8, ptr %1, i32 64
+  %95 = load i32, ptr %94, align 4, !tbaa !9
+  %96 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %95, i32 %75, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %97 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %96, i32 %81, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %98 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %97, i32 %87, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %99 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %98, i32 %93, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %100 = getelementptr inbounds nuw i8, ptr %1, i32 68
+  %101 = load i32, ptr %100, align 4, !tbaa !9
+  %102 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %101, i32 %81, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %103 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %102, i32 %87, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %104 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %103, i32 %93, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %105 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %104, i32 %75, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %106 = getelementptr inbounds nuw i8, ptr %1, i32 72
+  %107 = load i32, ptr %106, align 4, !tbaa !9
+  %108 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %107, i32 %87, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %109 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %108, i32 %93, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %110 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %109, i32 %75, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %111 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %110, i32 %81, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %112 = getelementptr inbounds nuw i8, ptr %1, i32 76
+  %113 = load i32, ptr %112, align 4, !tbaa !9
+  %114 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %113, i32 %93, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %115 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %114, i32 %75, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %116 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %115, i32 %81, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %117 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %116, i32 %87, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %118 = getelementptr inbounds nuw i8, ptr %1, i32 80
+  %119 = load i32, ptr %118, align 4, !tbaa !9
+  %120 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %119, i32 %99, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %121 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %120, i32 %105, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %122 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %121, i32 %111, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %123 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %122, i32 %117, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %124 = getelementptr inbounds nuw i8, ptr %1, i32 84
+  %125 = load i32, ptr %124, align 4, !tbaa !9
+  %126 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %125, i32 %105, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %127 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %126, i32 %111, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %128 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %127, i32 %117, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %129 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %128, i32 %99, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %130 = getelementptr inbounds nuw i8, ptr %1, i32 88
+  %131 = load i32, ptr %130, align 4, !tbaa !9
+  %132 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %131, i32 %111, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %133 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %132, i32 %117, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %134 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %133, i32 %99, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %135 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %134, i32 %105, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %136 = getelementptr inbounds nuw i8, ptr %1, i32 92
+  %137 = load i32, ptr %136, align 4, !tbaa !9
+  %138 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %137, i32 %117, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %139 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %138, i32 %99, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %140 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %139, i32 %105, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %141 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %140, i32 %111, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %142 = getelementptr inbounds nuw i8, ptr %1, i32 96
+  %143 = load i32, ptr %142, align 4, !tbaa !9
+  %144 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %143, i32 %123, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %145 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %144, i32 %129, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %146 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %145, i32 %135, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %147 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %146, i32 %141, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %148 = getelementptr inbounds nuw i8, ptr %1, i32 100
+  %149 = load i32, ptr %148, align 4, !tbaa !9
+  %150 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %149, i32 %129, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %151 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %150, i32 %135, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %152 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %151, i32 %141, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %153 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %152, i32 %123, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %154 = getelementptr inbounds nuw i8, ptr %1, i32 104
+  %155 = load i32, ptr %154, align 4, !tbaa !9
+  %156 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %155, i32 %135, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %157 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %156, i32 %141, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %158 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %157, i32 %123, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %159 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %158, i32 %129, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %160 = getelementptr inbounds nuw i8, ptr %1, i32 108
+  %161 = load i32, ptr %160, align 4, !tbaa !9
+  %162 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %161, i32 %141, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %163 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %162, i32 %123, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %164 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %163, i32 %129, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %165 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %164, i32 %135, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %166 = getelementptr inbounds nuw i8, ptr %1, i32 112
+  %167 = load i32, ptr %166, align 4, !tbaa !9
+  %168 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %167, i32 %147, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %169 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %168, i32 %153, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %170 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %169, i32 %159, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %171 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %170, i32 %165, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %172 = getelementptr inbounds nuw i8, ptr %1, i32 116
+  %173 = load i32, ptr %172, align 4, !tbaa !9
+  %174 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %173, i32 %153, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %175 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %174, i32 %159, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %176 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %175, i32 %165, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %177 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %176, i32 %147, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %178 = getelementptr inbounds nuw i8, ptr %1, i32 120
+  %179 = load i32, ptr %178, align 4, !tbaa !9
+  %180 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %179, i32 %159, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %181 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %180, i32 %165, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %182 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %181, i32 %147, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %183 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %182, i32 %153, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %184 = getelementptr inbounds nuw i8, ptr %1, i32 124
+  %185 = load i32, ptr %184, align 4, !tbaa !9
+  %186 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %185, i32 %165, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %187 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %186, i32 %147, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %188 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %187, i32 %153, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %189 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %188, i32 %159, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %190 = getelementptr inbounds nuw i8, ptr %1, i32 128
+  %191 = load i32, ptr %190, align 4, !tbaa !9
+  %192 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %191, i32 %171, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %193 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %192, i32 %177, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %194 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %193, i32 %183, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %195 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %194, i32 %189, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %196 = getelementptr inbounds nuw i8, ptr %1, i32 132
+  %197 = load i32, ptr %196, align 4, !tbaa !9
+  %198 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %197, i32 %177, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %199 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %198, i32 %183, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %200 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %199, i32 %189, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %201 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %200, i32 %171, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %202 = getelementptr inbounds nuw i8, ptr %1, i32 136
+  %203 = load i32, ptr %202, align 4, !tbaa !9
+  %204 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %203, i32 %183, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %205 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %204, i32 %189, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %206 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %205, i32 %171, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %207 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %206, i32 %177, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %208 = getelementptr inbounds nuw i8, ptr %1, i32 140
+  %209 = load i32, ptr %208, align 4, !tbaa !9
+  %210 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %209, i32 %189, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %211 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %210, i32 %171, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %212 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %211, i32 %177, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %213 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %212, i32 %183, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %214 = getelementptr inbounds nuw i8, ptr %1, i32 144
+  %215 = load i32, ptr %214, align 4, !tbaa !9
+  %216 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %215, i32 %195, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %217 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %216, i32 %201, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %218 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %217, i32 %207, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %219 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %218, i32 %213, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %220 = getelementptr inbounds nuw i8, ptr %1, i32 148
+  %221 = load i32, ptr %220, align 4, !tbaa !9
+  %222 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %221, i32 %201, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %223 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %222, i32 %207, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %224 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %223, i32 %213, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %225 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %224, i32 %195, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %226 = getelementptr inbounds nuw i8, ptr %1, i32 152
+  %227 = load i32, ptr %226, align 4, !tbaa !9
+  %228 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %227, i32 %207, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %229 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %228, i32 %213, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %230 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %229, i32 %195, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %231 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %230, i32 %201, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %232 = getelementptr inbounds nuw i8, ptr %1, i32 156
+  %233 = load i32, ptr %232, align 4, !tbaa !9
+  %234 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %233, i32 %213, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !11
+  %235 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %234, i32 %195, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !11
+  %236 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %235, i32 %201, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !11
+  %237 = tail call i32 asm sideeffect "aes32esmi $0, $1, $2, $3", "=r,r,r,I"(i32 %236, i32 %207, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !11
+  %238 = getelementptr inbounds nuw i8, ptr %1, i32 160
+  %239 = load i32, ptr %238, align 4, !tbaa !9
+  %240 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %239, i32 %219, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !12
+  %241 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %240, i32 %225, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !12
+  %242 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %241, i32 %231, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !12
+  %243 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %242, i32 %237, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !12
+  %244 = getelementptr inbounds nuw i8, ptr %1, i32 164
+  %245 = load i32, ptr %244, align 4, !tbaa !9
+  %246 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %245, i32 %225, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !12
+  %247 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %246, i32 %231, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !12
+  %248 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %247, i32 %237, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !12
+  %249 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %248, i32 %219, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !12
+  %250 = getelementptr inbounds nuw i8, ptr %1, i32 168
+  %251 = load i32, ptr %250, align 4, !tbaa !9
+  %252 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %251, i32 %231, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !12
+  %253 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %252, i32 %237, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !12
+  %254 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %253, i32 %219, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !12
+  %255 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %254, i32 %225, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !12
+  %256 = getelementptr inbounds nuw i8, ptr %1, i32 172
+  %257 = load i32, ptr %256, align 4, !tbaa !9
+  %258 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %257, i32 %237, i32 range(i32 -2147483648, 4) 0) #4, !srcloc !12
+  %259 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %258, i32 %219, i32 range(i32 -2147483648, 4) 1) #4, !srcloc !12
+  %260 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %259, i32 %225, i32 range(i32 -2147483648, 4) 2) #4, !srcloc !12
+  %261 = tail call i32 asm sideeffect "aes32esi $0, $1, $2, $3", "=r,r,r,I"(i32 %260, i32 %231, i32 range(i32 -2147483648, 4) 3) #4, !srcloc !12
+  store i32 %243, ptr %2, align 1
+  %262 = getelementptr inbounds nuw i8, ptr %2, i32 4
+  store i32 %249, ptr %262, align 1
+  %263 = getelementptr inbounds nuw i8, ptr %2, i32 8
+  store i32 %255, ptr %263, align 1
+  %264 = getelementptr inbounds nuw i8, ptr %2, i32 12
+  store i32 %261, ptr %264, align 1
+  ret void
+}
+
+; Function Attrs: nounwind
+define dso_local void @aes128_ecb_encrypt(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
+  %5 = alloca [176 x i8], align 1
+  %6 = and i32 %1, 15
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %15
+
+8:                                                ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #4
+  call void @expand_key(ptr noundef %2, ptr noundef nonnull %5)
+  %9 = icmp eq i32 %1, 0
+  br i1 %9, label %.loopexit, label %.preheader
+
+.loopexit:                                        ; preds = %.preheader, %8
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #4
+  br label %15
+
+.preheader:                                       ; preds = %8, %.preheader
+  %10 = phi i32 [ %13, %.preheader ], [ 0, %8 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i32 %10
+  %12 = getelementptr inbounds nuw i8, ptr %3, i32 %10
+  call void @aes128_encrypt_block(ptr noundef %11, ptr noundef nonnull %5, ptr noundef %12)
+  %13 = add nuw i32 %10, 16
+  %14 = icmp ult i32 %13, %1
+  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !13
+
+15:                                               ; preds = %.loopexit, %4
+  ret void
+}
+
+; Function Attrs: nofree norecurse nounwind
+define dso_local void @write_to_address(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+  %3 = inttoptr i32 %0 to ptr
+  store volatile i32 %1, ptr %3, align 4, !tbaa !9
+  ret void
+}
+
+; Function Attrs: nofree norecurse nounwind
+define dso_local void @write_v_to_address(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+  %3 = load i32, ptr %1, align 4, !tbaa !9
+  %4 = inttoptr i32 %0 to ptr
+  store volatile i32 %3, ptr %4, align 4, !tbaa !9
+  %5 = add i32 %0, 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i32 4
+  %7 = load i32, ptr %6, align 4, !tbaa !9
+  %8 = inttoptr i32 %5 to ptr
+  store volatile i32 %7, ptr %8, align 4, !tbaa !9
+  %9 = add i32 %0, 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i32 8
+  %11 = load i32, ptr %10, align 4, !tbaa !9
+  %12 = inttoptr i32 %9 to ptr
+  store volatile i32 %11, ptr %12, align 4, !tbaa !9
+  %13 = add i32 %0, 12
+  %14 = getelementptr inbounds nuw i8, ptr %1, i32 12
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = inttoptr i32 %13 to ptr
+  store volatile i32 %15, ptr %16, align 4, !tbaa !9
+  ret void
+}
+
+; Function Attrs: nounwind
+define dso_local noundef i32 @main() local_unnamed_addr #2 {
+  %1 = alloca [176 x i8], align 1
+  %2 = alloca [16 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %1) #4
+  call void @expand_key(ptr noundef nonnull readonly @__const.main.key, ptr noundef nonnull %1)
+  call void @aes128_encrypt_block(ptr noundef nonnull readonly @__const.main.plaintext, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %1) #4
+  store volatile i32 -73070316, ptr inttoptr (i32 1056816 to ptr), align 16, !tbaa !9
+  store volatile i32 1900803103, ptr inttoptr (i32 1056820 to ptr), align 4, !tbaa !9
+  store volatile i32 774220478, ptr inttoptr (i32 1056824 to ptr), align 8, !tbaa !9
+  store volatile i32 -1426520049, ptr inttoptr (i32 1056828 to ptr), align 4, !tbaa !9
+  %3 = load i32, ptr %2, align 4
+  store volatile i32 %3, ptr inttoptr (i32 1056832 to ptr), align 64, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %2, i32 4
+  %5 = load i32, ptr %4, align 4
+  store volatile i32 %5, ptr inttoptr (i32 1056836 to ptr), align 4, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %2, i32 8
+  %7 = load i32, ptr %6, align 4
+  store volatile i32 %7, ptr inttoptr (i32 1056840 to ptr), align 8, !tbaa !9
+  %8 = getelementptr inbounds nuw i8, ptr %2, i32 12
+  %9 = load i32, ptr %8, align 4
+  store volatile i32 %9, ptr inttoptr (i32 1056844 to ptr), align 4, !tbaa !9
+  %10 = icmp eq i32 %3, -73070316
+  %11 = icmp eq i32 %5, 1900803103
+  %12 = select i1 %10, i1 %11, i1 false
+  %13 = icmp eq i32 %7, 774220478
+  %14 = select i1 %12, i1 %13, i1 false
+  %15 = icmp eq i32 %9, -1426520049
+  %16 = select i1 %14, i1 %15, i1 false
+  %17 = select i1 %16, i32 -889275714, i32 -1163220307
+  store volatile i32 %17, ptr inttoptr (i32 1056772 to ptr), align 4, !tbaa !9
+  store volatile i32 -559038737, ptr inttoptr (i32 1056768 to ptr), align 8192, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  ret i32 0
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+d,+f,+m,+relax,+zaamo,+zalrsc,+zca,+zcd,+zcf,+zicsr,+zifencei,+zknd,+zkne,+zmmul,-b,-e,-experimental-p,-experimental-smctr,-experimental-ssctr,-experimental-svukte,-experimental-xqccmp,-experimental-xqcia,-experimental-xqciac,-experimental-xqcibi,-experimental-xqcibm,-experimental-xqcicli,-experimental-xqcicm,-experimental-xqcics,-experimental-xqcicsr,-experimental-xqciint,-experimental-xqciio,-experimental-xqcilb,-experimental-xqcili,-experimental-xqcilia,-experimental-xqcilo,-experimental-xqcilsm,-experimental-xqcisim,-experimental-xqcisls,-experimental-xqcisync,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-zalasr,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvkgs,-experimental-zvqdotq,-h,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscmov,-xmipslsp,-xsfcease,-xsfvcp,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zce,-zclsd,-zcmop,-zcmp,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+d,+f,+m,+relax,+zaamo,+zalrsc,+zca,+zcd,+zcf,+zicsr,+zifencei,+zknd,+zkne,+zmmul,-b,-e,-experimental-p,-experimental-smctr,-experimental-ssctr,-experimental-svukte,-experimental-xqccmp,-experimental-xqcia,-experimental-xqciac,-experimental-xqcibi,-experimental-xqcibm,-experimental-xqcicli,-experimental-xqcicm,-experimental-xqcics,-experimental-xqcicsr,-experimental-xqciint,-experimental-xqciio,-experimental-xqcilb,-experimental-xqcili,-experimental-xqcilia,-experimental-xqcilo,-experimental-xqcilsm,-experimental-xqcisim,-experimental-xqcisls,-experimental-xqcisync,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-zalasr,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvkgs,-experimental-zvqdotq,-h,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscmov,-xmipslsp,-xsfcease,-xsfvcp,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zce,-zclsd,-zcmop,-zcmp,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b" }
+attributes #3 = { nofree norecurse nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+d,+f,+m,+relax,+zaamo,+zalrsc,+zca,+zcd,+zcf,+zicsr,+zifencei,+zknd,+zkne,+zmmul,-b,-e,-experimental-p,-experimental-smctr,-experimental-ssctr,-experimental-svukte,-experimental-xqccmp,-experimental-xqcia,-experimental-xqciac,-experimental-xqcibi,-experimental-xqcibm,-experimental-xqcicli,-experimental-xqcicm,-experimental-xqcics,-experimental-xqcicsr,-experimental-xqciint,-experimental-xqciio,-experimental-xqcilb,-experimental-xqcili,-experimental-xqcilia,-experimental-xqcilo,-experimental-xqcilsm,-experimental-xqcisim,-experimental-xqcisls,-experimental-xqcisync,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-zalasr,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvkgs,-experimental-zvqdotq,-h,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscmov,-xmipslsp,-xsfcease,-xsfvcp,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zce,-zclsd,-zcmop,-zcmp,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b" }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !4}
+!llvm.ident = !{!5}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 1, !"target-abi", !"ilp32d"}
+!2 = !{i32 6, !"riscv-isa", !3}
+!3 = !{!"rv32i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_zicsr2p0_zifencei2p0_zmmul1p0_zaamo1p0_zalrsc1p0_zca1p0_zcd1p0_zcf1p0_zknd1p0_zkne1p0"}
+!4 = !{i32 8, !"SmallDataLimit", i32 0}
+!5 = !{!"clang version 21.0.0git (https://github.com/llvm/llvm-project.git e35cc2d387e170d0e1f6ef647f17423262feb1ea)"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{i64 3875}
+!12 = !{i64 5422}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}

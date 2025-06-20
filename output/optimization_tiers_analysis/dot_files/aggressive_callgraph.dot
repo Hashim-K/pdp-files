@@ -1,0 +1,20 @@
+digraph "Call graph: output/optimization_tiers_analysis/ir_files/aggressive.ll" {
+	label="Call graph: output/optimization_tiers_analysis/ir_files/aggressive.ll";
+
+	Node0x29be46c0 [shape=record,label="{expand_key}"];
+	Node0x29be39c0 [shape=record,label="{llvm.lifetime.start.p0}"];
+	Node0x29be3720 [shape=record,label="{llvm.lifetime.end.p0}"];
+	Node0x29be3360 [shape=record,label="{aes128_encrypt_block}"];
+	Node0x29be26a0 [shape=record,label="{main}"];
+	Node0x29be26a0 -> Node0x29be39c0;
+	Node0x29be26a0 -> Node0x29be3720;
+	Node0x29be26a0 -> Node0x29be46c0;
+	Node0x29be26a0 -> Node0x29be3360;
+	Node0x29be30c0 [shape=record,label="{aes128_ecb_encrypt}"];
+	Node0x29be30c0 -> Node0x29be39c0;
+	Node0x29be30c0 -> Node0x29be46c0;
+	Node0x29be30c0 -> Node0x29be3720;
+	Node0x29be30c0 -> Node0x29be3360;
+	Node0x29be2d00 [shape=record,label="{write_to_address}"];
+	Node0x29be2a60 [shape=record,label="{write_v_to_address}"];
+}

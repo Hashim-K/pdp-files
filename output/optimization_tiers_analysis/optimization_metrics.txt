@@ -1,0 +1,27 @@
+=== OPTIMIZATION TIER COMPARISON ===
+
+VERSION      | IR_INS | ASM_INS |   BB |   BR |  LD/ST |  CALLS |    PHI | DESCRIPTION
+-------------|--------|--------|-----|-----|--------|--------|--------|----------------------------------------
+baseline     |    346 |    615 |   62 |   60 |    236 |     26 |      0 | -O0, no optimizations (true baseline)
+unroll       |   1435 |   1067 |    9 |   12 |    599 |    173 |      4 | -O1 + loop-unroll only (isolated unrolling)
+aggressive   |    798 |    887 |    2 |    4 |    307 |    173 |      1 | -O3 + extra passes (maximum optimization)
+
+=== ISOLATED OPTIMIZATION EFFECTS ===
+
+=== 1. PURE LOOP UNROLLING EFFECT (Baseline vs Unroll) ===
+IR Instructions:     -314.7% change
+ASM Instructions:    -73.5% change
+Basic Blocks:        85.5% change
+Branches:            80.0% change
+
+=== 2. FULL OPTIMIZATION EFFECT (Baseline vs Aggressive) ===
+IR Instructions:     -130.6% change
+ASM Instructions:    -44.2% change
+Basic Blocks:        96.8% change
+Branches:            93.3% change
+
+=== 3. ADDITIONAL OPTIMIZATIONS EFFECT (Unroll vs Aggressive) ===
+IR Instructions:     44.4% additional change
+ASM Instructions:    16.9% additional change
+Basic Blocks:        77.8% additional change
+Branches:            66.7% additional change

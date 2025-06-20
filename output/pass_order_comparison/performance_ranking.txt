@@ -1,0 +1,44 @@
+=== PERFORMANCE RANKING (vs original sequence) ===
+
+=== iterative ===
+  IR Instructions: 1.9% improvement
+  ASM Instructions: 0.2% improvement
+  Basic Blocks: 0.0% improvement
+  Pass Order: loop-unroll,instcombine,simplifycfg,loop-unroll,instcombine,simplifycfg
+
+=== double_inst ===
+  IR Instructions: 1.9% improvement
+  ASM Instructions: 0.2% improvement
+  Basic Blocks: 0.0% improvement
+  Pass Order: loop-unroll,instcombine,simplifycfg,instcombine
+
+=== inst_first ===
+  IR Instructions: -0.1% improvement
+  ASM Instructions: -0.2% improvement
+  Basic Blocks: 0.0% improvement
+  Pass Order: instcombine,loop-unroll,simplifycfg
+
+=== double_cfg ===
+  IR Instructions: 0.0% improvement
+  ASM Instructions: -0.2% improvement
+  Basic Blocks: 0.0% improvement
+  Pass Order: loop-unroll,simplifycfg,instcombine,simplifycfg
+
+=== reverse ===
+  IR Instructions: -43.4% improvement
+  ASM Instructions: 0.2% improvement
+  Basic Blocks: -8250.0% improvement
+  Pass Order: simplifycfg,instcombine,loop-unroll
+
+=== cfg_first ===
+  IR Instructions: -3.1% improvement
+  ASM Instructions: 0.0% improvement
+  Basic Blocks: -8250.0% improvement
+  Pass Order: simplifycfg,loop-unroll,instcombine
+
+=== inst_last ===
+  IR Instructions: 0.0% improvement
+  ASM Instructions: -0.2% improvement
+  Basic Blocks: 0.0% improvement
+  Pass Order: loop-unroll,simplifycfg,instcombine
+

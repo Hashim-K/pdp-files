@@ -1,0 +1,19 @@
+digraph "Call graph: output/pass_order_comparison/ir_files/opt_reverse.ll" {
+	label="Call graph: output/pass_order_comparison/ir_files/opt_reverse.ll";
+
+	Node0xfc88990 [shape=record,label="{expand_key}"];
+	Node0xfcb36a0 [shape=record,label="{aes128_ecb_encrypt}"];
+	Node0xfcb36a0 -> Node0xfc88d50;
+	Node0xfcb36a0 -> Node0xfc88990;
+	Node0xfcb36a0 -> Node0xfc88ff0;
+	Node0xfcb36a0 -> Node0xfc61a70;
+	Node0xfcb3720 [shape=record,label="{write_to_address}"];
+	Node0xfcb37a0 [shape=record,label="{write_v_to_address}"];
+	Node0xfcb3820 [shape=record,label="{main}"];
+	Node0xfcb3820 -> Node0xfc88d50;
+	Node0xfcb3820 -> Node0xfc88ff0;
+	Node0xfcb3820 -> Node0xfc61a70;
+	Node0xfc88d50 [shape=record,label="{llvm.lifetime.start.p0}"];
+	Node0xfc88ff0 [shape=record,label="{llvm.lifetime.end.p0}"];
+	Node0xfc61a70 [shape=record,label="{aes128_encrypt_block}"];
+}

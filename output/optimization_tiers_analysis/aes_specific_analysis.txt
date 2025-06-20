@@ -1,0 +1,24 @@
+=== AES IMPLEMENTATION ANALYSIS ===
+
+=== baseline ===
+  AES Hardware Instructions: 18
+  Memory Copy Operations: 7
+  Array Access Patterns: 60
+  Detected Unroll Patterns: 0
+
+=== unroll ===
+  AES Hardware Instructions: 160
+  Memory Copy Operations: 0
+  Array Access Patterns: 588
+  Detected Unroll Patterns: 0
+
+=== aggressive ===
+  AES Hardware Instructions: 160
+  Memory Copy Operations: 0
+  Array Access Patterns: 287
+  Detected Unroll Patterns: 0
+
+=== AES HARDWARE INSTRUCTION UTILIZATION COMPARISON ===
+Baseline:    18 AES instructions
+Unroll:      160 AES instructions (788.9% vs baseline)
+Aggressive:  160 AES instructions (788.9% vs baseline)

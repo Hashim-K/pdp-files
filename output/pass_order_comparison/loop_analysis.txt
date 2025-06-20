@@ -1,0 +1,73 @@
+=== LOOP ANALYSIS COMPARISON ===
+
+=== iterative: loop-unroll,instcombine,simplifycfg,loop-unroll,instcombine,simplifycfg ===
+Loop info for function 'expand_key':
+Loop info for function 'aes128_encrypt_block':
+Loop info for function 'aes128_ecb_encrypt':
+Loop at depth 1 containing: %.preheader<header><latch><exiting>
+Loop info for function 'write_to_address':
+Loop info for function 'write_v_to_address':
+Loop info for function 'main':
+
+=== double_inst: loop-unroll,instcombine,simplifycfg,instcombine ===
+Loop info for function 'expand_key':
+Loop info for function 'aes128_encrypt_block':
+Loop info for function 'aes128_ecb_encrypt':
+Loop at depth 1 containing: %.preheader<header><latch><exiting>
+Loop info for function 'write_to_address':
+Loop info for function 'write_v_to_address':
+Loop info for function 'main':
+
+=== inst_first: instcombine,loop-unroll,simplifycfg ===
+Loop info for function 'expand_key':
+Loop info for function 'aes128_encrypt_block':
+Loop info for function 'aes128_ecb_encrypt':
+Loop at depth 1 containing: %.preheader<header><latch><exiting>
+Loop info for function 'write_to_address':
+Loop info for function 'write_v_to_address':
+Loop info for function 'main':
+
+=== double_cfg: loop-unroll,simplifycfg,instcombine,simplifycfg ===
+Loop info for function 'expand_key':
+Loop info for function 'aes128_encrypt_block':
+Loop info for function 'aes128_ecb_encrypt':
+Loop at depth 1 containing: %.preheader<header><latch><exiting>
+Loop info for function 'write_to_address':
+Loop info for function 'write_v_to_address':
+Loop info for function 'main':
+
+=== original: loop-unroll,instcombine,simplifycfg ===
+Loop info for function 'expand_key':
+Loop info for function 'aes128_encrypt_block':
+Loop info for function 'aes128_ecb_encrypt':
+Loop at depth 1 containing: %.preheader<header><latch><exiting>
+Loop info for function 'write_to_address':
+Loop info for function 'write_v_to_address':
+Loop info for function 'main':
+
+=== reverse: simplifycfg,instcombine,loop-unroll ===
+Loop info for function 'expand_key':
+Loop info for function 'aes128_encrypt_block':
+Loop info for function 'aes128_ecb_encrypt':
+Loop at depth 1 containing: %11<header><latch><exiting>
+Loop info for function 'write_to_address':
+Loop info for function 'write_v_to_address':
+Loop info for function 'main':
+
+=== cfg_first: simplifycfg,loop-unroll,instcombine ===
+Loop info for function 'expand_key':
+Loop info for function 'aes128_encrypt_block':
+Loop info for function 'aes128_ecb_encrypt':
+Loop at depth 1 containing: %11<header><latch><exiting>
+Loop info for function 'write_to_address':
+Loop info for function 'write_v_to_address':
+Loop info for function 'main':
+
+=== inst_last: loop-unroll,simplifycfg,instcombine ===
+Loop info for function 'expand_key':
+Loop info for function 'aes128_encrypt_block':
+Loop info for function 'aes128_ecb_encrypt':
+Loop at depth 1 containing: %.preheader<header><latch><exiting>
+Loop info for function 'write_to_address':
+Loop info for function 'write_v_to_address':
+Loop info for function 'main':

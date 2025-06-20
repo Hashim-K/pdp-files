@@ -1,0 +1,12 @@
+=== INSTRUCTION COUNT COMPARISON ===
+
+SEQUENCE        | IR   | ASM  | BB  | BR  | PASS_ORDER
+----------------|------|------|-----|-----|----------------------------------------
+iterative       | 2493 | 1660 |   2 |   4 | loop-unroll,instcombine,simplifycfg,loop-unroll,instcombine,simplifycfg
+double_inst     | 2493 | 1660 |   2 |   4 | loop-unroll,instcombine,simplifycfg,instcombine
+inst_first      | 2543 | 1667 |   2 |   4 | instcombine,loop-unroll,simplifycfg
+double_cfg      | 2541 | 1667 |   2 |   4 | loop-unroll,simplifycfg,instcombine,simplifycfg
+original        | 2541 | 1663 |   2 |   4 | loop-unroll,instcombine,simplifycfg
+reverse         | 3643 | 1659 | 167 | 169 | simplifycfg,instcombine,loop-unroll
+cfg_first       | 2621 | 1663 | 167 | 169 | simplifycfg,loop-unroll,instcombine
+inst_last       | 2541 | 1667 |   2 |   4 | loop-unroll,simplifycfg,instcombine

@@ -1,0 +1,19 @@
+digraph "Call graph: output/pass_order_comparison/ir_files/opt_inst_first.ll" {
+	label="Call graph: output/pass_order_comparison/ir_files/opt_inst_first.ll";
+
+	Node0x16ab4580 [shape=record,label="{expand_key}"];
+	Node0x16ab41c0 [shape=record,label="{llvm.lifetime.start.p0}"];
+	Node0x16ab3f20 [shape=record,label="{llvm.lifetime.end.p0}"];
+	Node0x16ab3b20 [shape=record,label="{aes128_encrypt_block}"];
+	Node0x16ab2cf0 [shape=record,label="{main}"];
+	Node0x16ab2cf0 -> Node0x16ab41c0;
+	Node0x16ab2cf0 -> Node0x16ab3f20;
+	Node0x16ab2cf0 -> Node0x16ab3b20;
+	Node0x16ab3760 [shape=record,label="{aes128_ecb_encrypt}"];
+	Node0x16ab3760 -> Node0x16ab41c0;
+	Node0x16ab3760 -> Node0x16ab4580;
+	Node0x16ab3760 -> Node0x16ab3f20;
+	Node0x16ab3760 -> Node0x16ab3b20;
+	Node0x16ab3350 [shape=record,label="{write_to_address}"];
+	Node0x16ab30b0 [shape=record,label="{write_v_to_address}"];
+}

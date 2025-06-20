@@ -1,0 +1,12 @@
+=== CRITICAL PATH INDICATORS ===
+
+SEQUENCE        | LD/ST  | CALLS  | PHI  | AES_INS
+----------------|--------|--------|------|--------
+iterative       |   1140 |    172 |    1 |    160
+double_inst     |   1140 |    172 |    1 |    160
+inst_first      |   1163 |    172 |    1 |    160
+double_cfg      |   1163 |    172 |    1 |    160
+original        |   1163 |    172 |    1 |    160
+reverse         |   1403 |    172 |  321 |    160
+cfg_first       |   1163 |    172 |   81 |    160
+inst_last       |   1163 |    172 |    1 |    160

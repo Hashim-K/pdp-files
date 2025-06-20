@@ -1,0 +1,23 @@
+digraph "Call graph: output/optimization_tiers_analysis/ir_files/baseline.ll" {
+	label="Call graph: output/optimization_tiers_analysis/ir_files/baseline.ll";
+
+	Node0x36c533c0 [shape=record,label="{expand_key}"];
+	Node0x36c556d0 [shape=record,label="{aes128_encrypt_block}"];
+	Node0x36c556d0 -> Node0x36c58760;
+	Node0x36c556d0 -> Node0x36c5a770;
+	Node0x36c556d0 -> Node0x36c5bc60;
+	Node0x36c58760 [shape=record,label="{llvm.memcpy.p0.p0.i32}"];
+	Node0x36c5a770 [shape=record,label="{aes32esmi_u32}"];
+	Node0x36c5bc60 [shape=record,label="{aes32esi_u32}"];
+	Node0x36c5c880 [shape=record,label="{aes128_ecb_encrypt}"];
+	Node0x36c5c880 -> Node0x36c533c0;
+	Node0x36c5c880 -> Node0x36c556d0;
+	Node0x36c5dc80 [shape=record,label="{write_to_address}"];
+	Node0x36c5e520 [shape=record,label="{write_v_to_address}"];
+	Node0x36c5e520 -> Node0x36c5dc80;
+	Node0x36c56b00 [shape=record,label="{main}"];
+	Node0x36c56b00 -> Node0x36c58760;
+	Node0x36c56b00 -> Node0x36c5dc80;
+	Node0x36c56b00 -> Node0x36c5e520;
+	Node0x36c56b00 -> Node0x36c5c880;
+}

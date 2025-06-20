@@ -1,0 +1,19 @@
+digraph "CFG for 'aes128_ecb_encrypt' function" {
+	label="CFG for 'aes128_ecb_encrypt' function";
+
+	Node0x36c59690 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d0473d70" fontname="Courier",label="{4:\l|  %5 = alloca ptr, align 4\l  %6 = alloca i32, align 4\l  %7 = alloca ptr, align 4\l  %8 = alloca ptr, align 4\l  %9 = alloca [176 x i8], align 1\l  %10 = alloca i32, align 4\l  store ptr %0, ptr %5, align 4\l  store i32 %1, ptr %6, align 4\l  store ptr %2, ptr %7, align 4\l  store ptr %3, ptr %8, align 4\l  %11 = load i32, ptr %6, align 4\l  %12 = urem i32 %11, 16\l  %13 = icmp ne i32 %12, 0\l  br i1 %13, label %14, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x36c59690:s0 -> Node0x36c5aee0;
+	Node0x36c59690:s1 -> Node0x36c5af40;
+	Node0x36c5aee0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d24b4070" fontname="Courier",label="{14:\l|  br label %33\l}"];
+	Node0x36c5aee0 -> Node0x36c5b050;
+	Node0x36c5af40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6524470" fontname="Courier",label="{15:\l|  %16 = load ptr, ptr %7, align 4\l  %17 = getelementptr inbounds [176 x i8], ptr %9, i32 0, i32 0\l  call void @expand_key(ptr noundef %16, ptr noundef %17)\l  store i32 0, ptr %10, align 4\l  br label %18\l}"];
+	Node0x36c5af40 -> Node0x36c5b410;
+	Node0x36c5b410 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870" fontname="Courier",label="{18:\l|  %19 = load i32, ptr %10, align 4\l  %20 = load i32, ptr %6, align 4\l  %21 = icmp ult i32 %19, %20\l  br i1 %21, label %22, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x36c5b410:s0 -> Node0x36c5b670;
+	Node0x36c5b410:s1 -> Node0x36c5b050;
+	Node0x36c5b670 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870" fontname="Courier",label="{22:\l|  %23 = load ptr, ptr %5, align 4\l  %24 = load i32, ptr %10, align 4\l  %25 = getelementptr inbounds nuw i8, ptr %23, i32 %24\l  %26 = getelementptr inbounds [176 x i8], ptr %9, i32 0, i32 0\l  %27 = load ptr, ptr %8, align 4\l  %28 = load i32, ptr %10, align 4\l  %29 = getelementptr inbounds nuw i8, ptr %27, i32 %28\l  call void @aes128_encrypt_block(ptr noundef %25, ptr noundef %26, ptr\l... noundef %29)\l  br label %30\l}"];
+	Node0x36c5b670 -> Node0x36c5bcb0;
+	Node0x36c5bcb0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870" fontname="Courier",label="{30:\l|  %31 = load i32, ptr %10, align 4\l  %32 = add i32 %31, 16\l  store i32 %32, ptr %10, align 4\l  br label %18, !llvm.loop !24\l}"];
+	Node0x36c5bcb0 -> Node0x36c5b410;
+	Node0x36c5b050 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d0473d70" fontname="Courier",label="{33:\l|  ret void\l}"];
+}
